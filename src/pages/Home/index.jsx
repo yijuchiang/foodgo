@@ -2,41 +2,23 @@ import { useNavigate } from 'react-router-dom'
 import FoodCard from '@/components/FoodCard'
 import { SettingsSliders, Cheeseburger } from "@/utils/food-images"
 import axios from 'axios'
+import { homeApi } from "@/api/home"
+import { useFoodData } from '@/Hooks/useFoodData'
+import * as Images from "@/utils/food-images";
 
-const foodCardData = [
-  {
-    id: 1,
-    image: Cheeseburger,
-    title1: 'Cheeseburger',
-    title2: 'WendyBurger',
-    pop: 4.9
-  },
-  {
-    id: 2,
-    image: Cheeseburger,
-    title1: 'Cheeseburger',
-    title2: 'WendyBurger',
-    pop: 4.9
-  },
-  {
-    id: 3,
-    image: Cheeseburger,
-    title1: 'Cheeseburger',
-    title2: 'WendyBurger',
-    pop: 4.9
-  },
-  {
-    id: 4,
-    image: Cheeseburger,
-    title1: 'Cheeseburger',
-    title2: 'WendyBurger',
-    pop: 4.9
-  },
-]
 
 
 const Home = () => {
   const navigate = useNavigate()
+  const { foodData } = useFoodData();
+
+  const getImageSrc = (image) => {
+    if (image.startsWith("http")) {
+      return image; // 網路圖片
+    }
+    return Images[image]; // 本地圖片
+  };
+
   return (
     <>
       <search>
@@ -60,11 +42,8 @@ const Home = () => {
       </nav>
       <section>
         <div className="gap-3 grid grid-cols-2">
-          {foodCardData.map((item) =>
-            <FoodCard key={item.id} title1={item.title1} title2={item.title2} image={item.image} pop={item.pop} onClick={() => navigate(`/foodDetail`)}/>
-          )}
-          {foodCardData.map((item) =>
-            <FoodCard key={item.id} title1={item.title1} title2={item.title2} image={item.image} pop={item.pop} onClick={() => navigate(`/foodDetail`)}/>
+          {foodData.map((item) =>
+            <FoodCard key={item.id} title1={item.title1} title2={item.title2} image={getImageSrc(item.image)} pop={item.pop} onClick={() => navigate(`/foodDetail`)}/>
           )}
         </div>
       </section>

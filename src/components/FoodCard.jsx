@@ -2,8 +2,10 @@ import React from 'react'
 
 const FoodCard = ({title1, title2, image, pop, onClick}) => {
   return (
-    <div className="h-56 rounded-3xl shadow-[0_6px_17px_rgba(0,0,0,0.13)] relative cursor-pointer" onClick={onClick}>
-      <img className="w-28 h-32 mx-auto" src={image} alt="" />
+    <div className="h-56 rounded-3xl shadow-[0_6px_17px_rgba(0,0,0,0.13)] relative cursor-pointer py-2" onClick={onClick}>
+      <div className="w-28 h-32 mx-auto overflow-hidden rounded-2xl">
+        <img className="object-cover w-full h-full" src={image} alt="" />
+      </div>
       <div className='ml-3 text-base mb-2'>
         <h1 className='block font-bold'>{title1}</h1>
         <span className=''>{title2}</span>
