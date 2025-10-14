@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import FoodCard from '@/components/FoodCard'
 import { SettingsSliders, Cheeseburger } from "@/utils/food-images"
-
+import axios from 'axios'
 
 const foodCardData = [
   {

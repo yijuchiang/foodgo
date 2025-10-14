@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "image": "@/assets/images/cheeseburger.png",
+    "title1": "Cheeseburger",
+    "title2": "WendyBurger",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "The Cheeseburger Wendy's Burger is a classic fast food burger that packs a punch of flavor in every bite. Made with a juicy beef patty cooked to perfection, it's topped with melted American cheese, crispy lettuce, ripe tomato, and crunchy pickles.",
+    "category": "burger"
+  },
+  {
+    "id": 2,
+    "image": "@/assets/images/veggieburger.png",
+    "title1": "Hamburger",
+    "title2": "Veggie Burger",
+    "pop": 4.8,
+    "price": 9.99,
+    "desc":"Enjoy our delicious Hamburger Veggie Burger, made with a savory blend of fresh vegetables and herbs, topped with crisp lettuce, juicy tomatoes, and tangy pickles, all served on a soft, toasted bun.",
+    "category": "burger"
+  },
+  {
+    "id": 3,
+    "image": "@/assets/images/chickenburger.png",
+    "title1": "Hamburger",
+    "title2": "Chicken Burger",
+    "pop": 4.6,
+    "price": 12.48,
+    "desc": "Our chicken burger is a delicious and healthier alternative to traditional beef burgers, perfect for those looking for a lighter meal option. Try it today and experience the mouth-watering flavors of our Hamburger Chicken Burger!",
+    "category": "burger"
+  },
+  {
+    "id": 4,
+    "image": "@/assets/images/friedchickenburger.png",
+    "title1": "Fried",
+    "title2": "Chicken Burger",
+    "pop": 4.5,
+    "price": 26.99,
+    "desc": "Indulge in our crispy and savory Fried Chicken Burger, made with a juicy chicken patty, hand-breaded and deep-fried to perfection, served on a warm bun with lettuce, tomato, and a creamy sauce.",
+    "category": "burger"
+  },
+  {
+    "id": 5,
+    "image": "https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1678",
+    "title1": "Grilled Bliss",
+    "title2": "Beef Salad Bowl",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Savor our Beef Salad Bowl, featuring tender slices of grilled beef, fresh greens, cherry tomatoes, and crunchy vegetables, drizzled with a light vinaigrette for a hearty yet healthy meal.",
+    "category": "salad"
+  },
+  {
+    "id": 6,
+    "image": "https://images.unsplash.com/photo-1582572358586-7cd1c5dbfa9e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDcyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900",
+    "title1": "Sunshine Mix",
+    "title2": "Fruit Salad Bowl",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Enjoy our Fruit Salad Bowl, packed with a colorful mix of seasonal fruits, leafy greens, and a refreshing honey-lemon dressing, perfect for a sweet and nourishing treat.",
+    "category": "salad"
+  },
+  {
+    "id": 7,
+    "image": "https://images.unsplash.com/photo-1511994714008-b6d68a8b32a2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1OXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=900",
+    "title1": "Garden Fresh",
+    "title2": "Veggie Salad Bowl",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Indulge in our Veggie Salad Bowl, loaded with crisp lettuce, bell peppers, cucumbers, carrots, and cherry tomatoes, served with a light dressing to keep it fresh and healthy.",
+    "category": "salad"
+  },
+  {
+    "id": 8,
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c2FsYWR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=700",
+    "title1": "Tropical Paradise",
+    "title2": "Hawaiian Bowl",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Try our Hawaiian Bowl, a tropical mix of juicy pineapple, fresh greens, colorful vegetables, and tender protein, finished with a tangy dressing for a vibrant and satisfying meal.",
+    "category": "salad"
+  },
+  {
+    "id": 9,
+    "image": "https://images.unsplash.com/photo-1648569883125-d01072540b4c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29sYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=900",
+    "title1": "Classic",
+    "title2": "Coca-Cola",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Enjoy the timeless fizz of our Classic Coca-Cola, a perfectly chilled drink with the ideal balance of sweetness and bubbles to refresh your day.",
+    "category": "drink"
+  },
+  {
+    "id": 10,
+    "image": "https://www.alcohol.com.tw/upload/catalog_m/ALL_catalog_20E05_86c2yrc2ed.png",
+    "title1": "Chilled",
+    "title2": "Heineken Beer",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Our Chilled Heineken Beer delivers a crisp, smooth flavor with a refreshing finish — perfect to pair with any meal or to simply unwind after a long day.",
+    "category": "drink"
+  },
+  {
+    "id": 11,
+    "image": "https://www.tgrand.com.tw/upload/catalog_m/ALL_catalog_23G12_1B599mEyiv.png",
+    "title1": "Zesty",
+    "title2": "Lemon Black Tea",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Savor the bold aroma of black tea blended with a zesty touch of lemon, offering the perfect balance of rich flavor and refreshing citrus notes.",
+    "category": "drink"
+  },
+  {
+    "id": 12,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmo2j2qN9VT7UTs9cDDH1ikiutYHU1GaTXBg&s",
+    "title1": "Creamy",
+    "title2": "Bubble Milk Tea",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Indulge in our signature Bubble Milk Tea, featuring chewy tapioca pearls and silky milk tea that’s perfectly sweet, smooth, and satisfying with every sip.",
+    "category": "drink"
+  },
+  {
+    "id": 13,
+    "image": "https://www.bbassets.com/media/uploads/p/l/251006_13-sprite-soft-drink-lime-flavoured.jpg",
+    "title1": "Fresh",
+    "title2": "Sprite",
+    "pop": 4.9,
+    "price": 8.24,
+    "desc": "Experience the light sparkle of our Fresh Sprite, a crisp lemon-lime soda bursting with refreshment and just the right amount of sweetness.",
+    "category": "drink"
+  }
+]

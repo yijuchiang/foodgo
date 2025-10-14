@@ -1,8 +1,10 @@
 import { Footer } from "@/utils/food-images"
 import { Add } from "@/utils/food-images"
 import { Outlet } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 const Layout = () => {
+
   return (
     <div className='flex flex-col min-h-screen mx-5 pt-7 pb-32'>
       <header>
@@ -27,7 +29,9 @@ const Layout = () => {
               <i className="fa-solid fa-heart text-white"></i>
             </div>
           </div>
-          <img className="w-24 h-24 absolute left-1/2 -translate-x-1/2 bottom-8" src={Add} alt="" />
+          <Link to='/payment'>
+            <img className="w-24 h-24 absolute left-1/2 -translate-x-1/2 bottom-8 cursor-pointer" src={Add} alt=""/>
+          </Link>
       </footer>
     </div>
   )

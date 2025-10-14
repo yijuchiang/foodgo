@@ -18,12 +18,12 @@ const router = createBrowserRouter([
       {
         path: '*',
         element: <NotFound/>
-      }
+      },
+      {
+        path: '/payment',
+        element: <Payment/>
+      },
     ]
-  },
-  {
-    path: '/payment',
-    element: <Payment/>
   },
   {
     path: '/orderConfirmation',
