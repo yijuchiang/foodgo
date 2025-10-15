@@ -10,4 +10,12 @@ import Veggieburger from "@/assets/images/veggieburger.png"
 
 
 
-export { Add, Footer, Cheeseburger, SpicylineCheeseburger, SettingsSliders, Chickenburger, Veggieburger}
+export { 
+  Add, 
+  Footer, 
+  Cheeseburger, 
+  SpicylineCheeseburger, 
+  SettingsSliders, 
+  Chickenburger, 
+  Veggieburger
+}

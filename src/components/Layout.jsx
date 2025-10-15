@@ -1,7 +1,6 @@
 import { Footer } from "@/utils/food-images"
 import { Add } from "@/utils/food-images"
-import { Outlet } from 'react-router-dom'
-import { Link } from "react-router-dom"
+import { Outlet, Link } from 'react-router-dom'
 
 const Layout = () => {
 
