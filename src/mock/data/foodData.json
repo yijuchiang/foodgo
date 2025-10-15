@@ -44,8 +44,8 @@
     "image": "https://img.freepik.com/premium-photo/rubber-beef-salad-with-spicy-dipping-sauce-white-background_646259-226.jpg",
     "title1": "Grilled Bliss",
     "title2": "Beef Salad Bowl",
-    "pop": 4.9,
-    "price": 8.24,
+    "pop": 4.6,
+    "price": 6.99,
     "desc": "Savor our Beef Salad Bowl, featuring tender slices of grilled beef, fresh greens, cherry tomatoes, and crunchy vegetables, drizzled with a light vinaigrette for a hearty yet healthy meal.",
     "category": "salad"
   },
@@ -55,7 +55,7 @@
     "title1": "Sunshine Mix",
     "title2": "Fruit Salad Bowl",
     "pop": 4.9,
-    "price": 8.24,
+    "price": 7.99,
     "desc": "Enjoy our Fruit Salad Bowl, packed with a colorful mix of seasonal fruits, leafy greens, and a refreshing honey-lemon dressing, perfect for a sweet and nourishing treat.",
     "category": "salad"
   },
@@ -64,8 +64,8 @@
     "image": "https://images.unsplash.com/photo-1511994714008-b6d68a8b32a2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1OXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=900",
     "title1": "Garden Fresh",
     "title2": "Veggie Salad Bowl",
-    "pop": 4.9,
-    "price": 8.24,
+    "pop": 4.8,
+    "price": 5.32,
     "desc": "Indulge in our Veggie Salad Bowl, loaded with crisp lettuce, bell peppers, cucumbers, carrots, and cherry tomatoes, served with a light dressing to keep it fresh and healthy.",
     "category": "salad"
   },
@@ -85,7 +85,7 @@
     "title1": "Classic",
     "title2": "Coca-Cola",
     "pop": 4.9,
-    "price": 8.24,
+    "price": 2.99,
     "desc": "Enjoy the timeless fizz of our Classic Coca-Cola, a perfectly chilled drink with the ideal balance of sweetness and bubbles to refresh your day.",
     "category": "drink"
   },
@@ -95,7 +95,7 @@
     "title1": "Chilled",
     "title2": "Heineken Beer",
     "pop": 4.9,
-    "price": 8.24,
+    "price": 5.00,
     "desc": "Our Chilled Heineken Beer delivers a crisp, smooth flavor with a refreshing finish — perfect to pair with any meal or to simply unwind after a long day.",
     "category": "drink"
   },
@@ -104,8 +104,8 @@
     "image": "https://www.tgrand.com.tw/upload/catalog_m/ALL_catalog_23G12_1B599mEyiv.png",
     "title1": "Zesty",
     "title2": "Lemon Black Tea",
-    "pop": 4.9,
-    "price": 8.24,
+    "pop": 4.2,
+    "price": 1.24,
     "desc": "Savor the bold aroma of black tea blended with a zesty touch of lemon, offering the perfect balance of rich flavor and refreshing citrus notes.",
     "category": "drink"
   },
@@ -114,8 +114,8 @@
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmo2j2qN9VT7UTs9cDDH1ikiutYHU1GaTXBg&s",
     "title1": "Creamy",
     "title2": "Bubble Milk Tea",
-    "pop": 4.9,
-    "price": 8.24,
+    "pop": 4.1,
+    "price": 3.99,
     "desc": "Indulge in our signature Bubble Milk Tea, featuring chewy tapioca pearls and silky milk tea that’s perfectly sweet, smooth, and satisfying with every sip.",
     "category": "drink"
   },
@@ -125,7 +125,7 @@
     "title1": "Fresh",
     "title2": "Sprite",
     "pop": 4.9,
-    "price": 8.24,
+    "price": 2.99,
     "desc": "Experience the light sparkle of our Fresh Sprite, a crisp lemon-lime soda bursting with refreshment and just the right amount of sweetness.",
     "category": "drink"
   }
