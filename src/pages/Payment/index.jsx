@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import { Link } from 'react-router-dom';
 import PaymentCard from "@/components/PaymentCard"
+import { useFoodData } from '@/Hooks/useFoodData'
 
 const Payment = () => {
   const navigate = useNavigate()
+  const { foodData } = useFoodData();
 
   return (
     <>
@@ -42,7 +44,8 @@ const Payment = () => {
       {/* orderItem */}
       <p className="text-xl font-poppins text-[#EF2A39] pl-2 pt-8 mb-5">Order Item</p>
       <main className="">
-        <PaymentCard></PaymentCard>
+        {foodData.map((item) => 
+        <PaymentCard key={item.id} title1={item.title1} title2={item.title2} image={(item.image)} price={item.price}/>)}
       </main>
       {/* pay */}
       <div className="h-20 flex justify-between items-end">

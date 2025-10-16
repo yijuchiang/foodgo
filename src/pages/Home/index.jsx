@@ -11,6 +11,8 @@ const Home = () => {
   const { foodData } = useFoodData();
   const [searchTitle, setSearchTitle] = useState('')
   const [filterFood, setFilterFood] = useState([])
+  const [changeCategory, setChangeCategory] = useState()
+
 
   const getImageSrc = (image) => {
     if (image.startsWith("http")) {
@@ -21,19 +23,30 @@ const Home = () => {
 
   const handleSearch = () => {
     const newFoodCard = foodData.filter((item) => 
-      item.title1.toLowerCase().includes(searchTitle.toLowerCase()) ||
+    item.title1.toLowerCase().includes(searchTitle.toLowerCase()) ||
     item.title2.toLowerCase().includes(searchTitle.toLowerCase())
-  )
-  if(!newFoodCard.length){
-    setFilterFood(foodData)
-  } else {
-    setFilterFood(newFoodCard)
+    )
+    if(!newFoodCard.length){
+      setFilterFood(foodData)
+    } else {
+      setFilterFood(newFoodCard)
+    }
+    if(!searchTitle.trim()) {
+      alert('Please enter would you like to eat?')
+      return
+    }
   }
-  if(!searchTitle.trim()) {
-    alert('Please enter would you like to eat?')
-    return
+
+  const handleFilter = (category) => {
+    setChangeCategory(category);
+    if (category === "All"){
+      setFilterFood(foodData)
+    } else {
+      const filtered = foodData.filter((item) => item.category === category)
+      setFilterFood(filtered)
+    }
   }
-}
+
 
 
   return (
@@ -51,10 +64,10 @@ const Home = () => {
       </search>
       <nav>
         <div className="flex justify-around h-12 mb-10 overflow-x-auto gap-3">
-          <div className="h-full px-7 flex items-center bg-[#EF2A39] text-white rounded-2xl shadow">All</div>
-          <div className="h-full px-7 flex items-center bg-[#F3F4F6] text-[#6A6A6A] rounded-2xl">Burger</div>
-          <div className="h-full px-7 flex items-center bg-[#F3F4F6] text-[#6A6A6A] rounded-2xl whitespace-nowrap">Salad Bowl</div>
-          <div className="h-full px-7 flex items-center bg-[#F3F4F6] text-[#6A6A6A] rounded-2xl">Drink</div>
+          <button className={`h-full px-7 flex items-center rounded-2xl ${changeCategory === "All" ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter("All")}>All</button>
+          <button className={`h-full px-7 flex items-center rounded-2xl ${changeCategory === "burger" ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter("burger")}>Burger</button>
+          <button className={`h-full px-7 flex items-center rounded-2xl whitespace-nowrap ${changeCategory === "salad" ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter("salad")}>Salad Bowl</button>
+          <button className={`h-full px-7 flex items-center rounded-2xl ${changeCategory === "drink" ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter("drink")}>Drink</button>
         </div>
       </nav>
       <section>
