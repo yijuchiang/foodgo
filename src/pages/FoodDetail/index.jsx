@@ -18,7 +18,11 @@ const FoodDetail = () => {
     }
     return Images[image]; // 本地圖片
   };
-  
+
+  const handleOrderNow = () => {
+    const orderItem = {...food, amount};
+    localStorage.setItem('orderItem', JSON.stringify(orderItem));
+  }
 
   if (!food) return <div>loading</div>
 
@@ -55,7 +59,7 @@ const FoodDetail = () => {
       {/* button */}
       <div className='flex justify-between items-center gap-3 h-16'>
         <span className="inline-block w-24 leading-[64px] text-center tracking-wider text-[#FFFFFF] bg-[#EF2A39] rounded-2xl">${food?.price}</span>
-        <button className="w-60 h-full text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl shadow-[0_9px_30px_rgba(0,0,0,0.25)]" onClick={() => navigate(`/payment`)}>ORDER NOW</button>
+        <button className="w-60 h-full text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl shadow-[0_9px_30px_rgba(0,0,0,0.25)]" onClick={() => navigate(`/profile`)}>ORDER NOW</button>
       </div>
     </>
   )

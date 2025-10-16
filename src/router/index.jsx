@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, FoodDetail, NotFound, OrderConfirmation, Payment } from "@/pages/index";
+import { Home, FoodDetail, NotFound, OrderConfirmation, Payment, Profile } from "@/pages/index";
 import Layout from "@/components/Layout"
 
 const router = createBrowserRouter([
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
         path: '/payment',
         element: <Payment/>
       },
+      {
+        path: '/profile',
+        element: <Profile/>
+      }
     ]
   },
   {

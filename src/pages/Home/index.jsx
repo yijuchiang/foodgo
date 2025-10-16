@@ -54,7 +54,7 @@ const Home = () => {
       <search>
         <div className="flex gap-2 items-center mb-10">
           <div className="relative flex items-center flex-1 gap-1 rounded-2xl shadow">
-            <i className="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 left-4 "></i>
+            <i className="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 left-4"></i>
             <input className="py-4 flex-1 rounded-2xl pl-12 focus:outline-0" onChange={(event) => setSearchTitle(event.target.value)} onKeyDown={(event) => {if (event.key === 'Enter'){handleSearch()}}} type="text" placeholder="Search"/>
           </div>
           <button className="w-14 h-14 relative bg-[#EF2A39] rounded-2xl flex justify-center items-center" onClick={handleSearch}>

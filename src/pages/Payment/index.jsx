@@ -2,10 +2,24 @@ import { useNavigate } from "react-router-dom"
 import { Link } from 'react-router-dom';
 import PaymentCard from "@/components/PaymentCard"
 import { useFoodData } from '@/Hooks/useFoodData'
+import * as Images from "@/utils/food-images";
+import { useState } from 'react';
+
 
 const Payment = () => {
   const navigate = useNavigate()
   const { foodData } = useFoodData();
+  const [amount, setAmount] = useState(1)
+
+  const getImageSrc = (image) => {
+    if (image.startsWith("http")) {
+      return image; // 網路圖片
+    }
+    return Images[image]; // 本地圖片
+  };
+    
+
+    
 
   return (
     <>
@@ -45,7 +59,7 @@ const Payment = () => {
       <p className="text-xl font-poppins text-[#EF2A39] pl-2 pt-8 mb-5">Order Item</p>
       <main className="">
         {foodData.map((item) => 
-        <PaymentCard key={item.id} title1={item.title1} title2={item.title2} image={(item.image)} price={item.price}/>)}
+        <PaymentCard key={item.id} title1={item.title1} title2={item.title2} image={getImageSrc(item.image)} price={item.price}/>)}
       </main>
       {/* pay */}
       <div className="h-20 flex justify-between items-end">
@@ -53,7 +67,7 @@ const Payment = () => {
           <span className="text-[#7D7D7D]">Total price</span>
           <span className="text-[#EF2A39] text-4xl tracking-wider font-black">$18.19</span>
         </div>
-        <button className="w-52 h-16 text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl" onClick={() => navigate(`/orderConfirmation`)}>Pay Now</button>
+        <button className="w-52 h-16 text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl" onClick={() => navigate(`/orderConfirmation`)}>PAY NOW</button>
       </div>
     </>
   )
