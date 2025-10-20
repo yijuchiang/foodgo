@@ -3,6 +3,7 @@ import { useNavigate, Link, useParams} from 'react-router-dom'
 import { SpicylineCheeseburger } from "@/utils/food-images"
 import { useFoodData } from '@/Hooks/useFoodData'
 import * as Images from "@/utils/food-images";
+import { useCartStore } from '@/store/useCartStore';
 
 
 const FoodDetail = () => {
@@ -11,6 +12,7 @@ const FoodDetail = () => {
   const { foodData } = useFoodData()
   const { id } = useParams()
   const food = foodData.find((item) => item.id === Number(id))
+  const setCart = useCartStore(state => state.addCart)
 
   const getImageSrc = (image) => {
     if (image.startsWith("http")) {
@@ -19,10 +21,23 @@ const FoodDetail = () => {
     return Images[image]; // 本地圖片
   };
 
-  const handleOrderNow = () => {
-    const orderItem = {...food, amount};
-    localStorage.setItem('orderItem', JSON.stringify(orderItem));
+  const addCart = () => {
+    const product = {
+      id: new Date().getTime(),
+      orderPrice: amount * food.price,
+      amount,
+      food
+    }
+    setCart(product)
   }
+
+  const handleAddCartAndOpen = () => {
+    addCart();         
+    navigate(`/payment`); 
+  };
+
+
+
 
   if (!food) return <div>loading</div>
 
@@ -59,7 +74,7 @@ const FoodDetail = () => {
       {/* button */}
       <div className='flex justify-between items-center gap-3 h-16'>
         <span className="inline-block w-24 leading-[64px] text-center tracking-wider text-[#FFFFFF] bg-[#EF2A39] rounded-2xl">${food?.price}</span>
-        <button className="w-60 h-full text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl shadow-[0_9px_30px_rgba(0,0,0,0.25)]" onClick={() => navigate(`/profile`)}>ORDER NOW</button>
+        <button className="w-60 h-full text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl shadow-[0_9px_30px_rgba(0,0,0,0.25)]" onClick={handleAddCartAndOpen}>ORDER NOW</button>
       </div>
     </>
   )

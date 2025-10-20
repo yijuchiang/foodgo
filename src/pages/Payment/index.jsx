@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { Link } from 'react-router-dom';
 import PaymentCard from "@/components/PaymentCard"
-import { useFoodData } from '@/Hooks/useFoodData'
 import * as Images from "@/utils/food-images";
-import { useState } from 'react';
+import { useCartStore } from "@/store/useCartStore";
 
 
 const Payment = () => {
   const navigate = useNavigate()
-  const { foodData } = useFoodData();
-  const [amount, setAmount] = useState(1)
+  const { cart, removeCart } = useCartStore();
 
   const getImageSrc = (image) => {
     if (image.startsWith("http")) {
@@ -18,8 +16,9 @@ const Payment = () => {
     return Images[image]; // 本地圖片
   };
     
-
-    
+  const orderPrice = Number(cart.reduce((prev, item) => prev + item.orderPrice, 0).toFixed(2))
+  const taxesPrice = Number((orderPrice * 0.01).toFixed(2))
+  const totalPrice = Number((orderPrice + taxesPrice + 1.5).toFixed(2))
 
   return (
     <>
@@ -28,15 +27,15 @@ const Payment = () => {
         <i className="fa-solid fa-magnifying-glass w-5 h-5"></i>
       </div>
       <p className="text-xl font-poppins text-[#EF2A39] pl-2 pt-8 mb-5">Order summary</p>
-      {/* detail */}
+      {/* orderPrice detail */}
       <div className="mx-6 text-lg text-[#7D7D7D] flex flex-col leading-10">
         <div className="flex justify-between">
           <span>Order</span>
-          <span className="tracking-wider">$16.48</span>
+          <span className="tracking-wider">${orderPrice}</span>
         </div>
         <div className="flex justify-between">
           <span>Taxes</span>
-          <span className="tracking-wider">$0.3</span>
+          <span className="tracking-wider">${taxesPrice}</span>
         </div>
         <div className="flex justify-between">
           <span>Delivery fees</span>
@@ -48,7 +47,7 @@ const Payment = () => {
       <div className="mx-6 mt-6 leading-10 mb-2">
         <div className="flex justify-between text-lg font-poppins ">
           <span>Total:</span>
-          <span className="tracking-wider">$18.19</span>
+          <span className="tracking-wider">${totalPrice}</span>
         </div>
         <div className="flex justify-between">
           <span>Estimated delivery time:</span>
@@ -58,16 +57,18 @@ const Payment = () => {
       {/* orderItem */}
       <p className="text-xl font-poppins text-[#EF2A39] pl-2 pt-8 mb-5">Order Item</p>
       <main className="">
-        {foodData.map((item) => 
-        <PaymentCard key={item.id} title1={item.title1} title2={item.title2} image={getImageSrc(item.image)} price={item.price}/>)}
+        {cart.length ? (
+        cart.map((item) => 
+        <PaymentCard key={item.id} title1={item.food.title1} title2={item.food.title2} image={getImageSrc(item.food.image)} price={item.food.price} amount={item.amount} onDelete={() => removeCart(item.id)}/>
+        )) : (<div>你的購物車是空的唷!</div>)}
       </main>
-      {/* pay */}
+      {/* totalPrice */}
       <div className="h-20 flex justify-between items-end">
         <div className="flex flex-col leading-6">
           <span className="text-[#7D7D7D]">Total price</span>
-          <span className="text-[#EF2A39] text-4xl tracking-wider font-black">$18.19</span>
+          <span className="text-[#EF2A39] text-4xl tracking-wider font-black">${totalPrice}</span>
         </div>
-        <button className="w-52 h-16 text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl" onClick={() => navigate(`/orderConfirmation`)}>PAY NOW</button>
+        <button className="w-52 h-16 text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl" onClick={() => navigate(`/profile`)}>PAY NOW</button>
       </div>
     </>
   )

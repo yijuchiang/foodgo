@@ -24,7 +24,9 @@ const Layout = () => {
                 <i className="fa-regular fa-house text-white"></i>  
               </Link>
               <div className="w-60 flex justify-between">
-                <i className="fa-regular fa-user text-white"></i>
+                <Link to='/profile'>
+                  <i className="fa-regular fa-user text-white"></i>
+                </Link>
                 <i className="fa-regular fa-comment text-white"></i>
               </div>
               <i className="fa-solid fa-heart text-white"></i>
