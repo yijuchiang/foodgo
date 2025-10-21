@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import PaymentCard from "@/components/PaymentCard"
 import * as Images from "@/utils/food-images";
@@ -18,7 +18,8 @@ const Payment = () => {
     
   const orderPrice = Number(cart.reduce((prev, item) => prev + item.orderPrice, 0).toFixed(2))
   const taxesPrice = Number((orderPrice * 0.01).toFixed(2))
-  const totalPrice = Number((orderPrice + taxesPrice + 1.5).toFixed(2))
+  const deliveryFree = orderPrice > 0 ? 1.5 : 0
+  const totalPrice = Number((orderPrice + taxesPrice + deliveryFree).toFixed(2))
 
   return (
     <>
@@ -39,7 +40,7 @@ const Payment = () => {
         </div>
         <div className="flex justify-between">
           <span>Delivery fees</span>
-          <span className="tracking-wider">$1.5</span>
+          <span className="tracking-wider">${deliveryFree}</span>
         </div>
         <hr className="border-[#7D7D7D]"/>
       </div>
@@ -60,7 +61,7 @@ const Payment = () => {
         {cart.length ? (
         cart.map((item) => 
         <PaymentCard key={item.id} title1={item.food.title1} title2={item.food.title2} image={getImageSrc(item.food.image)} price={item.food.price} amount={item.amount} onDelete={() => removeCart(item.id)}/>
-        )) : (<div>你的購物車是空的唷!</div>)}
+        )) : (<div className="ml-6 mb-[104px]">Oops! Your cart is empty!</div>)}
       </main>
       {/* totalPrice */}
       <div className="h-20 flex justify-between items-end">

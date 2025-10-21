@@ -3,7 +3,7 @@ import FoodCard from '@/components/FoodCard'
 import { SettingsSliders } from "@/utils/food-images"
 import { useFoodData } from '@/Hooks/useFoodData'
 import * as Images from "@/utils/food-images";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const Home = () => {
@@ -11,8 +11,11 @@ const Home = () => {
   const { foodData } = useFoodData();
   const [searchTitle, setSearchTitle] = useState('')
   const [filterFood, setFilterFood] = useState([])
-  const [changeCategory, setChangeCategory] = useState()
+  const [changeCategory, setChangeCategory] = useState("All")
 
+  useEffect(() => {
+    setFilterFood(foodData);
+  }, [foodData]);
 
   const getImageSrc = (image) => {
     if (image.startsWith("http")) {
@@ -22,6 +25,10 @@ const Home = () => {
   };
 
   const handleSearch = () => {
+    if(!searchTitle.trim()) {
+      alert('Please enter would you like to eat?')
+      return
+    }
     const newFoodCard = foodData.filter((item) => 
     item.title1.toLowerCase().includes(searchTitle.toLowerCase()) ||
     item.title2.toLowerCase().includes(searchTitle.toLowerCase())
@@ -31,19 +38,16 @@ const Home = () => {
     } else {
       setFilterFood(newFoodCard)
     }
-    if(!searchTitle.trim()) {
-      alert('Please enter would you like to eat?')
-      return
-    }
   }
 
-  const handleFilter = (category) => {
-    setChangeCategory(category);
-    if (category === "All"){
+  const category = [ "All", "Burger", "Salad", "Drink"]
+  const handleFilter = (value) => {    
+    setChangeCategory(value);
+    if (value === "All"){
       setFilterFood(foodData)
     } else {
-      const filtered = foodData.filter((item) => item.category === category)
-      setFilterFood(filtered)
+      const newFood = foodData.filter((item) => item.category === value)
+      setFilterFood(newFood)
     }
   }
 
@@ -64,10 +68,9 @@ const Home = () => {
       </search>
       <nav>
         <div className="flex justify-around h-12 mb-10 overflow-x-auto gap-3">
-          <button className={`h-full px-7 flex items-center rounded-2xl ${changeCategory === "All" ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter("All")}>All</button>
-          <button className={`h-full px-7 flex items-center rounded-2xl ${changeCategory === "burger" ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter("burger")}>Burger</button>
-          <button className={`h-full px-7 flex items-center rounded-2xl whitespace-nowrap ${changeCategory === "salad" ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter("salad")}>Salad Bowl</button>
-          <button className={`h-full px-7 flex items-center rounded-2xl ${changeCategory === "drink" ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter("drink")}>Drink</button>
+          {category.map((item) => (
+            <button key={item} className={`h-full px-7 flex items-center rounded-2xl ${changeCategory === item ? "bg-[#EF2A39] text-white shadow " : "bg-[#F3F4F6] text-[#6A6A6A]"}`} onClick={() => handleFilter(item)}>{item}</button>
+          ))}
         </div>
       </nav>
       <section>

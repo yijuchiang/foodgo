@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useNavigate, Link, useParams} from 'react-router-dom'
-import { SpicylineCheeseburger } from "@/utils/food-images"
-import { useFoodData } from '@/Hooks/useFoodData'
+import { useNavigate, Link, useParams} from 'react-router-dom';
+import { SpicylineCheeseburger } from "@/utils/food-images";
+import { useFoodData } from '@/Hooks/useFoodData';
 import * as Images from "@/utils/food-images";
 import { useCartStore } from '@/store/useCartStore';
 

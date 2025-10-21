@@ -7,7 +7,7 @@
     "pop": 4.9,
     "price": 8.24,
     "desc": "The Cheeseburger Wendy's Burger is a classic fast food burger that packs a punch of flavor in every bite. Made with a juicy beef patty cooked to perfection, it's topped with melted American cheese, crispy lettuce, ripe tomato, and crunchy pickles.",
-    "category": "burger"
+    "category": "Burger"
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "pop": 4.8,
     "price": 9.99,
     "desc":"Enjoy our delicious Hamburger Veggie Burger, made with a savory blend of fresh vegetables and herbs, topped with crisp lettuce, juicy tomatoes, and tangy pickles, all served on a soft, toasted bun.",
-    "category": "burger"
+    "category": "Burger"
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@
     "pop": 4.6,
     "price": 12.48,
     "desc": "Our chicken burger is a delicious and healthier alternative to traditional beef burgers, perfect for those looking for a lighter meal option. Try it today and experience the mouth-watering flavors of our Hamburger Chicken Burger!",
-    "category": "burger"
+    "category": "Burger"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "pop": 4.5,
     "price": 6.99,
     "desc": "Indulge in our crispy and savory Fried Chicken Burger, made with a juicy chicken patty, hand-breaded and deep-fried to perfection, served on a warm bun with lettuce, tomato, and a creamy sauce.",
-    "category": "burger"
+    "category": "Burger"
   },
   {
     "id": 5,
@@ -47,7 +47,7 @@
     "pop": 4.6,
     "price": 6.99,
     "desc": "Savor our Beef Salad Bowl, featuring tender slices of grilled beef, fresh greens, cherry tomatoes, and crunchy vegetables, drizzled with a light vinaigrette for a hearty yet healthy meal.",
-    "category": "salad"
+    "category": "Salad"
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "pop": 4.9,
     "price": 7.99,
     "desc": "Enjoy our Fruit Salad Bowl, packed with a colorful mix of seasonal fruits, leafy greens, and a refreshing honey-lemon dressing, perfect for a sweet and nourishing treat.",
-    "category": "salad"
+    "category": "Salad"
   },
   {
     "id": 7,
@@ -67,7 +67,7 @@
     "pop": 4.8,
     "price": 5.32,
     "desc": "Indulge in our Veggie Salad Bowl, loaded with crisp lettuce, bell peppers, cucumbers, carrots, and cherry tomatoes, served with a light dressing to keep it fresh and healthy.",
-    "category": "salad"
+    "category": "Salad"
   },
   {
     "id": 8,
@@ -77,7 +77,7 @@
     "pop": 4.9,
     "price": 8.24,
     "desc": "Try our Hawaiian Bowl, a tropical mix of juicy pineapple, fresh greens, colorful vegetables, and tender protein, finished with a tangy dressing for a vibrant and satisfying meal.",
-    "category": "salad"
+    "category": "Salad"
   },
   {
     "id": 9,
@@ -86,8 +86,8 @@
     "title2": "Coca-Cola",
     "pop": 4.9,
     "price": 2.99,
-    "desc": "Enjoy the timeless fizz of our Classic Coca-Cola, a perfectly chilled drink with the ideal balance of sweetness and bubbles to refresh your day.",
-    "category": "drink"
+    "desc": "Enjoy the timeless fizz of our Classic Coca-Cola, a perfectly chilled Drink with the ideal balance of sweetness and bubbles to refresh your day.",
+    "category": "Drink"
   },
   {
     "id": 10,
@@ -97,7 +97,7 @@
     "pop": 4.9,
     "price": 5.99,
     "desc": "Our Chilled Heineken Beer delivers a crisp, smooth flavor with a refreshing finish — perfect to pair with any meal or to simply unwind after a long day.",
-    "category": "drink"
+    "category": "Drink"
   },
   {
     "id": 11,
@@ -107,7 +107,7 @@
     "pop": 4.2,
     "price": 1.24,
     "desc": "Savor the bold aroma of black tea blended with a zesty touch of lemon, offering the perfect balance of rich flavor and refreshing citrus notes.",
-    "category": "drink"
+    "category": "Drink"
   },
   {
     "id": 12,
@@ -117,16 +117,16 @@
     "pop": 4.1,
     "price": 3.99,
     "desc": "Indulge in our signature Bubble Milk Tea, featuring chewy tapioca pearls and silky milk tea that’s perfectly sweet, smooth, and satisfying with every sip.",
-    "category": "drink"
+    "category": "Drink"
   },
   {
     "id": 13,
-    "image": "https://www.bbassets.com/media/uploads/p/l/251006_13-sprite-soft-drink-lime-flavoured.jpg",
+    "image": "https://www.bbassets.com/media/uploads/p/l/251006_13-sprite-soft-Drink-lime-flavoured.jpg",
     "title1": "Fresh",
     "title2": "Sprite",
     "pop": 4.9,
     "price": 2.99,
     "desc": "Experience the light sparkle of our Fresh Sprite, a crisp lemon-lime soda bursting with refreshment and just the right amount of sweetness.",
-    "category": "drink"
+    "category": "Drink"
   }
 ]
