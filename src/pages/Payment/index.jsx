@@ -10,6 +10,7 @@ const Payment = () => {
   const { cart, removeCart } = useCartStore();
 
   const getImageSrc = (image) => {
+    if (!image) return '/fallback.png';
     if (image.startsWith("http")) {
       return image; // 網路圖片
     }
@@ -58,9 +59,9 @@ const Payment = () => {
       {/* orderItem */}
       <p className="text-xl font-poppins text-[#EF2A39] pl-2 pt-8 mb-5">Order Item</p>
       <main className="">
-        {cart.length ? (
+        {cart?.length ? (
         cart.map((item) => 
-        <PaymentCard key={item.id} title1={item.food.title1} title2={item.food.title2} image={getImageSrc(item.food.image)} price={item.food.price} amount={item.amount} onDelete={() => removeCart(item.id)}/>
+        <PaymentCard key={item.id} title1={item?.food?.title1} title2={item?.food?.title2} image={getImageSrc(item?.food?.image)} price={item?.food?.price} amount={item?.amount} onDelete={() => removeCart(item.id)}/>
         )) : (<div className="ml-6 mb-[104px]">Oops! Your cart is empty!</div>)}
       </main>
       {/* totalPrice */}

@@ -5,6 +5,7 @@ import SpicylineCheeseburger from "@/assets/images/spicyline-cheeseburger.png"
 import SettingsSliders from "@/assets/images/settings-sliders.png"
 import Chickenburger from "@/assets/images/chickenburger.png"
 import Veggieburger from "@/assets/images/veggieburger.png"
+import User from '@/assets/images/user.png'
 
 
 
@@ -17,5 +18,6 @@ export {
   SpicylineCheeseburger, 
   SettingsSliders, 
   Chickenburger, 
-  Veggieburger
+  Veggieburger,
+  User
 }

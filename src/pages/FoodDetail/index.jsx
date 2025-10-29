@@ -4,6 +4,7 @@ import { SpicylineCheeseburger } from "@/utils/food-images";
 import { useFoodData } from '@/Hooks/useFoodData';
 import * as Images from "@/utils/food-images";
 import { useCartStore } from '@/store/useCartStore';
+import { Spin } from 'antd';
 
 
 const FoodDetail = () => {
@@ -13,6 +14,10 @@ const FoodDetail = () => {
   const { id } = useParams()
   const food = foodData.find((item) => item.id === Number(id))
   const setCart = useCartStore(state => state.addCart)
+  const pageId = foodData.findIndex((item) => item.id === Number(id))
+  const prevFood = foodData[pageId - 1]
+  const nextFood = foodData[pageId + 1]
+
 
   const getImageSrc = (image) => {
     if (image.startsWith("http")) {
@@ -36,18 +41,23 @@ const FoodDetail = () => {
     navigate(`/payment`); 
   };
 
-
-
-
-  if (!food) return <div>loading</div>
+  if (!food) return <Spin className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" size="large" />
 
   return (
     <>
       {/* top */}
       <div className="flex justify-between items-center mb-12">
-        <Link to='/'><i className="fa-solid fa-arrow-left w-7"></i></Link>
+        {prevFood ? (
+          <Link to={`/foodDetail/${prevFood.id}`}><i className="fa-solid fa-arrow-left w-7"></i></Link>
+        ) : (
+          <span className="w-7"></span>
+        )}
         <img className="w-[280px]" src={getImageSrc(food?.image)} alt="" />
-        <button><i className="fa-solid fa-magnifying-glass w-5 h-5"></i></button>
+        {nextFood ? (
+          <Link to={`/foodDetail/${nextFood.id}`}><i className="fa-solid fa-arrow-right w-7"></i></Link>
+        ) : (
+          <span className="w-7"></span>
+        )}
       </div>
       <section>
         <h1 className="text-2xl font-bold mb-2">{food?.title1} {food?.title2}</h1>

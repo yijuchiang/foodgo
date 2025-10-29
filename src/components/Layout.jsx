@@ -1,15 +1,21 @@
-import { Footer } from "@/utils/food-images"
-import { Add } from "@/utils/food-images"
+import { Footer, Add, User } from "@/utils/food-images"
 import { Outlet, Link } from 'react-router-dom'
+import { useUserStore } from "@/store/useUserStore"
 
 const Layout = () => {
+  const {token, setToken} = useUserStore()
+  
 
   return (
     <div className='flex flex-col min-h-screen mx-5 pt-7 pb-32'>
       <header>
         <div className="flex justify-between">
-          <h1 className="text-4xl font-lobster">Foodgo</h1>  
-          <img className="w-14 h-14 object-cover rounded-xl" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGVvcGxlfGVufDB8fDB8fHww" alt="" />
+          <Link to='/'><h1 className="text-4xl font-lobster">Foodgo</h1></Link>
+          {token ? (
+            <img className="w-14 h-14 object-cover rounded-xl" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987" alt="" />
+          ) : (
+            <img className="w-16 h-16" src={User}/>
+          )}
         </div>
         <p className="text-lg font-poppins mb-12">Order you favourite food!</p>
       </header>
