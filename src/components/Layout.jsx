@@ -36,7 +36,7 @@ const Layout = () => {
                 <i className="fa-regular fa-comment text-white"></i>
               </div>
               <Link to='./Likes'>
-                <i className="fa-solid fa-heart text-white"></i>
+                <i className="fa-solid fa-heart text-black"></i>
               </Link>
             </div>
           </div>
