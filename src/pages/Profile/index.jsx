@@ -37,6 +37,7 @@ const Profile = () => {
     });
     }
   }
+  <div></div>
 
   const logout = () => {
     setToken('')
