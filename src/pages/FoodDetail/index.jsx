@@ -1,14 +1,13 @@
-import { useState } from 'react';
-import { useNavigate, Link, useParams} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useParams} from 'react-router-dom';
 import { SpicylineCheeseburger } from "@/utils/food-images";
 import { useFoodData } from '@/Hooks/useFoodData';
 import * as Images from "@/utils/food-images";
 import { useCartStore } from '@/store/useCartStore';
-import { Spin } from 'antd';
+import { Spin,notification } from 'antd';
 
 
 const FoodDetail = () => {
-  const navigate = useNavigate()
   const [amount, setAmount] = useState(1)
   const { foodData } = useFoodData()
   const { id } = useParams()
@@ -17,7 +16,11 @@ const FoodDetail = () => {
   const pageId = foodData.findIndex((item) => item.id === Number(id))
   const prevFood = foodData[pageId - 1]
   const nextFood = foodData[pageId + 1]
-
+  const [api, contextHolder] = notification.useNotification();
+  
+  useEffect(() => {
+  setAmount(1);
+  }, [id]);
 
   const getImageSrc = (image) => {
     if (image.startsWith("http")) {
@@ -36,15 +39,27 @@ const FoodDetail = () => {
     setCart(product)
   }
 
-  const handleAddCartAndOpen = () => {
-    addCart();         
-    navigate(`/payment`); 
+  const openNotification = () => {
+    api.open({
+      message: 'Item added to your cart !!!',
+      duration: 2,
+      placement: 'bottom'
+    });
   };
+
+  const handleAddCart = () => {
+    addCart()
+    openNotification()
+  }
+
 
   if (!food) return <Spin className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" size="large" />
 
+
+
   return (
     <>
+      {contextHolder}
       {/* top */}
       <div className="flex justify-between items-center mb-12">
         {prevFood ? (
@@ -84,7 +99,7 @@ const FoodDetail = () => {
       {/* button */}
       <div className='flex justify-between items-center gap-3 h-16'>
         <span className="inline-block w-24 leading-[64px] text-center tracking-wider text-[#FFFFFF] bg-[#EF2A39] rounded-2xl">${food?.price}</span>
-        <button className="w-60 h-full text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl shadow-[0_9px_30px_rgba(0,0,0,0.25)]" onClick={handleAddCartAndOpen}>ORDER NOW</button>
+        <button className="w-60 h-full text-[#FFFFFF] bg-[#3C2F2F] rounded-2xl shadow-[0_9px_30px_rgba(0,0,0,0.25)]" onClick={handleAddCart}>Add to Cart</button>
       </div>
     </>
   )

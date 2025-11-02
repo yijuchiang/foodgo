@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { homeApi } from '@/api/home';
 import { useUserStore } from '@/store/useUserStore';
 import { message } from 'antd';
+import { useCartStore } from "@/store/useCartStore";
 
 
 
@@ -12,6 +13,7 @@ const Profile = () => {
   const [password, setPassword] = useState('')
   const {token, setToken} = useUserStore()
   const [messageApi, contextHolder] = message.useMessage()
+  const { cart, cancelCart } = useCartStore();
 
   const login = async() => {
     if(!username || !password) {
@@ -46,6 +48,11 @@ const Profile = () => {
     });
   }
 
+  const handlePurchase = () => {
+    cancelCart()
+    navigate('/orderFinish')
+  }
+
 
   return (
     <>
@@ -78,11 +85,14 @@ const Profile = () => {
       <div className='flex justify-between items-center gap-3 h-16'>
         {token ? (
           <>
-            <button className="inline-block w-40 leading-[64px] text-center tracking-wider text-[#EF2A39] border border-solid border-[#EF2A39] rounded-2xl font-bold" onClick={logout}>LOG OUT</button>
-            <button className="w-52 h-full text-[#FFFFFF] bg-[#3C2F2F] font-bold rounded-2xl shadow-[0_9px_30px_rgba(0,0,0,0.25)]" onClick={() => navigate('/orderConfirmation')}>Complete Purchase</button>
+            <button className="inline-block w-40 leading-[64px] text-center tracking-wider text-[#EF2A39] border border-solid border-[#EF2A39] rounded-2xl font-bold hover:bg-[#3C2F2F] hover:text-white hover:border-none" onClick={logout}>Log Out</button>
+            {cart.length > 0 ? 
+            (<button className="w-52 h-full text-[#FFFFFF] bg-[#3C2F2F] font-bold rounded-2xl shadow hover:bg-yellow-300 hover:text-[#EF2A39] hover:font-black" onClick={handlePurchase}>Complete Purchase</button>) : (
+            (<button className="w-52 h-full text-[#FFFFFF] bg-[#3C2F2F] font-bold rounded-2xl shadow " onClick={() => navigate('/')}>Menu</button>)
+            )}
           </>
         ) : (
-          <button className="w-40 h-full text-[#FFFFFF] bg-[#3C2F2F] font-bold rounded-2xl shadow-[0_9px_30px_rgba(0,0,0,0.25)]" onClick={login}>LOG IN</button>
+          <button className="w-40 h-full text-[#FFFFFF] bg-[#3C2F2F] font-bold rounded-2xl shadow" onClick={login}>Log In</button>
         )}
       </div>
     </>

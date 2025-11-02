@@ -3,7 +3,7 @@ import { Outlet, Link } from 'react-router-dom'
 import { useUserStore } from "@/store/useUserStore"
 
 const Layout = () => {
-  const {token, setToken} = useUserStore()
+  const {token} = useUserStore()
   
 
   return (
@@ -35,7 +35,9 @@ const Layout = () => {
                 </Link>
                 <i className="fa-regular fa-comment text-white"></i>
               </div>
-              <i className="fa-solid fa-heart text-white"></i>
+              <Link to='./Likes'>
+                <i className="fa-solid fa-heart text-white"></i>
+              </Link>
             </div>
           </div>
           <Link to='/payment'>

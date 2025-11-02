@@ -11,10 +11,11 @@ export const useCartStore = create(
       removeCart: (id) => set((state) => {
         const newCart = state.cart.filter((item) => item.id !== id)
         return { cart: newCart } 
-      }) 
+      }),
+      cancelCart: () => set({ cart: [] }), 
     }),
     {
-      name: 'cart'
+      name: 'food-cart'
     }
   )
 )

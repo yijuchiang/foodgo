@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, FoodDetail, NotFound, OrderConfirmation, Payment, Profile } from "@/pages/index";
+import { Home, FoodDetail, NotFound, OrderFinish, Payment, Profile, Likes } from "@/pages/index";
 import Layout from "@/components/Layout"
 
 const router = createBrowserRouter([
@@ -26,12 +26,16 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile/>
+      },
+      {
+        path: '/likes',
+        element: <Likes/>
       }
     ]
   },
   {
-    path: '/orderConfirmation',
-    element: <OrderConfirmation/>
+    path: '/orderFinish',
+    element: <OrderFinish/>
   }
 ])
 

@@ -8,7 +8,7 @@ export const useUserStore = create(
       setToken: (token) => set(() => ({ token })),
     }),
     {
-      name: 'user'
+      name: 'food-user'
     }
   )
 )
