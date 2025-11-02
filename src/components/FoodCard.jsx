@@ -1,25 +1,14 @@
 import { useState } from "react"
-import { useLikesStore } from "@/store/useLikesStore"
 
 
 
-
-const FoodCard = ({title1, title2, image, pop, onClick}) => {
+const FoodCard = ({title1, title2, image, pop, onClick, onLike}) => {
   const [liked, setLiked] = useState(false)
-  const setLikes = useLikesStore(state => state.addLikes)
 
   const handleLikesButtonChange = () => {
     setLiked(!liked)
-    addLikes()
   }
 
-  // const addLikes = () => {
-  //   const product = {
-  //     id: food.id,
-  //     food
-  //   }
-  //   setLikes(product)
-  // }
 
 
   return (
@@ -35,7 +24,7 @@ const FoodCard = ({title1, title2, image, pop, onClick}) => {
         <i className="fa-solid fa-star text-[#FFD43B]"></i>
         <span className='ml-2'>{pop}</span>
       </div>
-      <button className='absolute bottom-4 right-3' onClick={handleLikesButtonChange}>
+      <button className='absolute bottom-4 right-3' onClick={onLike}>
         <i className={liked ? "fa-solid fa-heart text-red-500" : "fa-regular fa-heart"}></i>
       </button>
     </div>

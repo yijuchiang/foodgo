@@ -4,6 +4,7 @@ import { SettingsSliders } from "@/utils/food-images"
 import { useFoodData } from '@/Hooks/useFoodData'
 import * as Images from "@/utils/food-images";
 import { useState, useEffect } from 'react';
+import { useLikesStore } from "@/store/useLikesStore"
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
   const [searchTitle, setSearchTitle] = useState('')
   const [filterFood, setFilterFood] = useState([])
   const [changeCategory, setChangeCategory] = useState("All")
+  const setLikes = useLikesStore(state => state.addLikes)
 
   useEffect(() => {
     setFilterFood(foodData);
@@ -51,6 +53,11 @@ const Home = () => {
     }
   }
 
+  // const addLikes = () => {
+  //   if(liked){
+  //     addLikes(food)
+  //   }
+  // }
 
 
   return (
@@ -76,7 +83,7 @@ const Home = () => {
       <section>
         <div className="gap-3 grid grid-cols-2">
           {(filterFood.length ? filterFood : foodData).map((item) =>
-            <FoodCard key={item.id} title1={item.title1} title2={item.title2} image={getImageSrc(item.image)} pop={item.pop} onClick={() => navigate(`/foodDetail/${item.id}`)}/>
+            <FoodCard key={item.id} title1={item.title1} title2={item.title2} image={getImageSrc(item.image)} pop={item.pop} onClick={() => navigate(`/foodDetail/${item.id}`)} onLike={''}/>
           )}
         </div>
       </section>
