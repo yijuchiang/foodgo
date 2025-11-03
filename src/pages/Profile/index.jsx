@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { homeApi } from '@/api/home';
 import { useUserStore } from '@/store/useUserStore';
 import { message } from 'antd';
@@ -53,6 +53,12 @@ const Profile = () => {
     cancelCart()
     navigate('/orderFinish')
   }
+
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate('/')
+  //   }
+  // }, [])
 
 
   return (

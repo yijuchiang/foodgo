@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import FoodCard from '@/components/FoodCard'
 import { SettingsSliders } from "@/utils/food-images"
 import { useFoodData } from '@/Hooks/useFoodData'
-import * as Images from "@/utils/food-images";
 import { useState, useEffect } from 'react';
 import { useLikesStore } from "@/store/useLikesStore"
+import { getImageSrc } from "@/utils/getImageSrc"
 
 
 const Home = () => {
@@ -13,18 +13,12 @@ const Home = () => {
   const [searchTitle, setSearchTitle] = useState('')
   const [filterFood, setFilterFood] = useState([])
   const [changeCategory, setChangeCategory] = useState("All")
-  const setLikes = useLikesStore(state => state.addLikes)
+  const { likes, addLikes, removeLikes } = useLikesStore()
 
   useEffect(() => {
     setFilterFood(foodData);
   }, [foodData]);
 
-  const getImageSrc = (image) => {
-    if (image.startsWith("http")) {
-      return image; // 網路圖片
-    }
-    return Images[image]; // 本地圖片
-  };
 
   const handleSearch = () => {
     if(!searchTitle.trim()) {
@@ -53,11 +47,15 @@ const Home = () => {
     }
   }
 
-  // const addLikes = () => {
-  //   if(liked){
-  //     addLikes(food)
-  //   }
-  // }
+  const addToLikes = (id) => {
+    const isLikes = likes.some((item) => item.id === id)
+    if (isLikes){ 
+      removeLikes(id)
+    } else {
+      const product = foodData.find((item) => item.id === id)
+      addLikes(product)
+    }
+  }
 
 
   return (
@@ -83,7 +81,7 @@ const Home = () => {
       <section>
         <div className="gap-3 grid grid-cols-2">
           {(filterFood.length ? filterFood : foodData).map((item) =>
-            <FoodCard key={item.id} title1={item.title1} title2={item.title2} image={getImageSrc(item.image)} pop={item.pop} onClick={() => navigate(`/foodDetail/${item.id}`)} onLike={''}/>
+            <FoodCard key={item.id} id={item.id} title1={item.title1} title2={item.title2} image={getImageSrc(item.image)} pop={item.pop} onClick={() => navigate(`/foodDetail/${item.id}`)} onLike={() => addToLikes(item.id)}/>
           )}
         </div>
       </section>

@@ -1,15 +1,9 @@
-import { useState } from "react"
+import { useLikesStore } from "@/store/useLikesStore"
 
 
-
-const FoodCard = ({title1, title2, image, pop, onClick, onLike}) => {
-  const [liked, setLiked] = useState(false)
-
-  const handleLikesButtonChange = () => {
-    setLiked(!liked)
-  }
-
-
+const FoodCard = ({id, title1, title2, image, pop, onClick, onLike}) => {
+  const { likes } = useLikesStore()
+  const isLike = likes.some((item) => item.id === id)
 
   return (
     <div className="h-56 rounded-3xl shadow-[0_6px_17px_rgba(0,0,0,0.13)] relative cursor-pointer py-2">
@@ -25,7 +19,7 @@ const FoodCard = ({title1, title2, image, pop, onClick, onLike}) => {
         <span className='ml-2'>{pop}</span>
       </div>
       <button className='absolute bottom-4 right-3' onClick={onLike}>
-        <i className={liked ? "fa-solid fa-heart text-red-500" : "fa-regular fa-heart"}></i>
+        <i className={isLike ? "fa-solid fa-heart text-red-500" : "fa-regular fa-heart"}></i>
       </button>
     </div>
   )

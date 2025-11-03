@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link, useParams} from 'react-router-dom';
 import { SpicylineCheeseburger } from "@/utils/food-images";
 import { useFoodData } from '@/Hooks/useFoodData';
-import * as Images from "@/utils/food-images";
 import { useCartStore } from '@/store/useCartStore';
-import { Spin,notification } from 'antd';
+import { Spin, notification } from 'antd';
+import { getImageSrc } from "@/utils/getImageSrc"
 
 
 const FoodDetail = () => {
@@ -22,13 +22,6 @@ const FoodDetail = () => {
   setAmount(1);
   }, [id]);
 
-  const getImageSrc = (image) => {
-    if (image.startsWith("http")) {
-      return image; // 網路圖片
-    }
-    return Images[image]; // 本地圖片
-  };
-
   const addCart = () => {
     const product = {
       id: new Date().getTime(),
@@ -37,6 +30,7 @@ const FoodDetail = () => {
       food
     }
     setCart(product)
+    setAmount(1)
   }
 
   const openNotification = () => {
