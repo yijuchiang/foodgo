@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, FoodDetail, NotFound, OrderFinish, Payment, Profile, Likes } from "@/pages/index";
+import { Home, FoodDetail, NotFound, OrderFinish, Payment, Profile, Likes, Login } from "@/pages/index";
 import Layout from "@/components/Layout"
 
 const router = createBrowserRouter([
@@ -30,7 +30,11 @@ const router = createBrowserRouter([
       {
         path: '/likes',
         element: <Likes/>
-      }
+      },
+      {
+        path: '/login',
+        element: <Login/>
+      },
     ]
   },
   {

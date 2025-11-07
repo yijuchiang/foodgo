@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import FoodCard from '@/components/FoodCard'
-import { SettingsSliders } from "@/utils/food-images"
 import { useFoodData } from '@/Hooks/useFoodData'
 import { useState, useEffect } from 'react';
 import { useLikesStore } from "@/store/useLikesStore"
@@ -66,9 +65,7 @@ const Home = () => {
             <i className="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 left-4"></i>
             <input className="py-4 flex-1 rounded-2xl pl-12 focus:outline-0" onChange={(event) => setSearchTitle(event.target.value)} onKeyDown={(event) => {if (event.key === 'Enter'){handleSearch()}}} type="text" placeholder="Search"/>
           </div>
-          <button className="w-14 h-14 relative bg-[#EF2A39] rounded-2xl flex justify-center items-center" onClick={handleSearch}>
-            <img className="w-6 aspect-square" src={SettingsSliders} alt="" />
-          </button>
+          <button className="w-14 h-14 rounded-2xl border border-solid border-[#EF2A39] text-[#EF2A39] hover:bg-[#EF2A39] hover:text-white hover:font-bold" onClick={handleSearch}>GO!</button>
         </div>
       </search>
       <nav>

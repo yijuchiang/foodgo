@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import PaymentCard from "@/components/PaymentCard"
 import * as Images from "@/utils/food-images";
 import { useCartStore } from "@/store/useCartStore";
+import { useUserStore } from '@/store/useUserStore';
 
 
 const Payment = () => {
   const navigate = useNavigate()
   const { cart, removeCart } = useCartStore();
+  const { token } = useUserStore()
 
   const getImageSrc = (image) => {
     if (!image) return '/fallback.png';
@@ -70,7 +72,11 @@ const Payment = () => {
           <span className="text-[#7D7D7D]">Total price</span>
           <span className="text-[#EF2A39] text-4xl tracking-wider font-black">${totalPrice}</span>
         </div>
-        <button className="w-52 h-16 text-[#FFFFFF] bg-[#3C2F2F] hover:bg-yellow-300 hover:text-[#EF2A39] hover:font-black rounded-2xl" onClick={() => navigate(`/profile`)}>PAY NOW</button>
+        {token ? (
+          <button className="w-52 h-16 text-[#FFFFFF] bg-[#3C2F2F] hover:bg-yellow-300 hover:text-[#EF2A39] hover:font-black rounded-2xl" onClick={() => navigate(`/profile`)}>PAY NOW</button>
+        ) : (
+          <button className="w-52 h-16 text-[#3C2F2F] border border-solid border-[#3C2F2F] hover:border-[#EF2A39] hover:text-[#EF2A39] hover:font-black rounded-2xl" onClick={() => navigate(`/login`)}>Please log in first</button>
+        )}
       </div>
     </>
   )
